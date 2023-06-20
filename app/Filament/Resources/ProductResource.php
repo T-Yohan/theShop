@@ -34,6 +34,14 @@ class ProductResource extends Resource
                     ->maxLength(191),
                 Forms\Components\Textarea::make('description')
                     ->maxLength(65535),
+
+                Forms\Components\FileUpload::make('defaultImage'),
+
+                Forms\Components\FileUpload::make('carouselImage')
+                    ->multiple()
+                    ->minfiles(1)
+                    ->maxFiles(4),
+
                 Forms\Components\TextInput::make('prix'),
             ]);
     }
@@ -45,7 +53,8 @@ class ProductResource extends Resource
                 Tables\Columns\TextColumn::make('category.name'),
                 Tables\Columns\TextColumn::make('user.name'),
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\ImageColumn::make('defaultImage')
+                ->circular(),
                 Tables\Columns\TextColumn::make('prix'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime(),
@@ -62,14 +71,14 @@ class ProductResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -77,5 +86,5 @@ class ProductResource extends Resource
             'create' => Pages\CreateProduct::route('/create'),
             'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
-    }    
+    }
 }
