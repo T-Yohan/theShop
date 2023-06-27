@@ -1,5 +1,5 @@
 
-@extends('layout.theshop')
+@extends('layouts.theshop')
 
 @section('main')
 <h1 class="text-3xl font-bold underline">
