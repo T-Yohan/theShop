@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class CarouselDetail extends Component
+class CarouselDetail2 extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class CarouselDetail extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.carousel-detail');
+        return view('components.carousel-detail2');
     }
 }
