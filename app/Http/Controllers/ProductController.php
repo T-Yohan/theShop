@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\View\Components\liste\Products;
 use Illuminate\Http\Request;
-use App\Http\Controllers\ProductController;
+
 
 class ProductController extends Controller
 {
@@ -24,5 +25,11 @@ class ProductController extends Controller
 
 
         return view('welcome', \compact('products'));
+    }
+
+    public function detail(Product $product= null)
+    {
+        // dd($product);
+        return \view('detail',\compact('product'));
     }
 }
