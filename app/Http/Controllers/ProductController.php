@@ -32,4 +32,14 @@ class ProductController extends Controller
         // dd($product);
         return \view('detail',\compact('product'));
     }
+
+    //méthode de recherche à partir d'un mot clé
+    public function search(String $keyword = '')
+    {
+        $product = Product::where('name','LIKE',$keyword.'%')
+                    ->limit(3)->get() ;
+
+        return response()->json($product);
+
+    }
 }

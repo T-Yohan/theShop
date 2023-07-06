@@ -23,6 +23,7 @@ use App\Http\Controllers\ProfileController;
 Route::get('/', [ProductController::class,'index'])->name('accueil');
 Route::get('/category/{id}', [ProductController::class,'index'])->name('category');
 Route::get('/detail/{product}', [ProductController::class,'detail'])->name('detail');
+Route::get('/search/{keyword}', [ProductController::class,'search'])->name('search');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -34,6 +35,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/cart', [CartController::class, 'index'])->name('cart');
     Route::get('/cart/delete-one/{cart}', [CartController::class, 'deleteOne'])->name('cart-delete-one'); //supprime un élément du caddie
+    Route::get('/cart/update/{cart}/{quantity}', [CartController::class, 'update'])->name('cart-update'); //supprime un élément du caddie
     Route::get('/cart/delete', [CartController::class, 'delete'])->name('cart-delete'); //supprime les éléments du caddie
 });
 

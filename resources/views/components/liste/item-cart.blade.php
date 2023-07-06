@@ -8,7 +8,7 @@
     <div class="md:pl-3 md:w-8/12 2xl:w-3/4 flex flex-col justify-center">
         <div class="flex items-center justify-between w-full">
             <p class="text-base font-black leading-none text-gray-800 dark:text-white"> {{$itemCart->product->name}} </p>
-            <select data-id="{{$itemCart->id}} "aria-label="Select quantity"
+            <select data-ref="{{$itemCart->id}}" id="{{$itemCart->id}}" "aria-label="Select quantity"
                 class="cartChangeQuantity py-2 px-1 border border-gray-200 mr-6 focus:outline-none dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
 
                 @for ($i=1;$i<=5;$i++)
